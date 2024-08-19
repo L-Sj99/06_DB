@@ -378,7 +378,7 @@ WHERE EMAIL LIKE '___$_%' ESCAPE '$'; -- 12행 조회
  * 1) FROM 테이블명 (어떤 테이블에서)
  * 2) WHERE 조건식 (조건을 만족하는 행만 선택(조회))
  * 4) ORDER BY 컬럼명 | 별칭 | 컬럼순서(숫자) | [ASC / DESC](오름차순 / 내림차순) |
- *  [NULLS FTRST / NULLS LAST](NULL 위치 지정) (조회된 결과를 정렬)
+ *  [NULLS FIRST / NULLS LAST](NULL 위치 지정) (조회된 결과를 정렬)
  * ORDER BY 절은 무조건 SELECT 마지막에 수행됨 *
  */
 -- 오름차순(ASCENDING) : 갈수록 커짐 EX) 1 ~ 10, 가 ~ 하, A ~ Z

@@ -14,8 +14,10 @@ WHERE DEPARTMENT_NO IN ('001') AND ABSENCE_YN IN ('Y');
 
 /* 1-4. 도서관에서 대출 도서 장기 연체자들을 찾아 이름을 게시하고자 한다
  * 그 대상들의 학번이 다음과 같을 때 대상자들을 찾는 적절한 SQL구문을 작성하시오(A513079, A513090, A513091, A513110, A513119) */
-SELECT STUDENT_NO
-FROM TB_STUDENT;
+SELECT STUDENT_NAME
+FROM TB_STUDENT
+WHERE STUDENT_NO IN('A513079', 'A513090', 'A513091', 'A513110', 'A513119')
+ORDER BY STUDENT_NAME DESC;
 
 /* 1-5. 입학 정원이 20명 이상 30명 이하인 학과들의 학과 이름과 계열을 조회하시오 */
 SELECT DEPARTMENT_NAME, CATEGORY
@@ -53,22 +55,26 @@ WHERE DEPARTMENT_NO IN('002');
 
 /* 2-2. 춘 기술대학교의 교수 중 이름이 세글자가 아닌 교수가 두 명 있다고 한다
  * 그 교수의 이름과 주민번호를 조회하는 SQL을 작성 */
-SELECT 
-FROM 
+SELECT PROFESSOR_NAME, PROFESSOR_SSN
+FROM TB_PROFESSOR
+WHERE PROFESSOR_NAME NOT LIKE('___');
 
  /* 2-3. 춘 기술대학교의 남자 교수들의 이름과 나이를 나이 오름차순으로 조회하시오
-  * (단, 교수 중 2000년 이후 출생자는 없으며, 출력 헤더는 "교수 이름"으로 한다, 나이는 '만으로 계산 */
-SELECT 
-FROM 
+  * (단, 교수 중 2000년 이후 출생자는 없으며, 출력 헤더는 "교수 이름"으로 한다, 나이는 '만'으로 계산 */
+SELECT PROFESSOR_NAME "교수 이름", TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY')) - '1900'-TO_NUMBER(SUBSTR(PROFESSOR_SSN, 1, 2)) "나이"
+FROM TB_PROFESSOR
+WHERE  DECODE(SUBSTR(PROFESSOR_SSN, 8, 1), '1', '남성') IS NOT NULL
+ORDER BY PROFESSOR_SSN ASC;
 
 /*  2-4. 교수들의 이름 중 성을 제외한 이름만 조회하시오. 출력 헤드는 "이름"이 찍히도록 한다
  * 성이 2자인 경우의 교수는 없다고 가정*/
-SELECT 
-FROM 
+SELECT SUBSTR(PROFESSOR_NAME, 2) AS 이름
+FROM TB_PROFESSOR;
 
 /*  2-5. 충 기술대학교의 재수생 입학자를 조회하시오.(19살에 입학하면 재수를 하지 않은 것) */
-SELECT 
-FROM 
+SELECT STUDENT_NO, STUDENT_NAME
+FROM TB_STUDENT
+WHERE TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY')) - TO_NUMBER(SUBSTR(STUDENT_SSN)); 
 
 /*  2-6. 춘 기술대학교의 2000년도 이후 입학자들은 학번이 A로 시작하게 되어있다
  * 2000년도 이전 학번을 받은 학생들의 학번과 이름 조회하는 SQL을 작성하시오 */
