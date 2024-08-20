@@ -13,7 +13,7 @@
 카테시안(카티션) 곱		교차 조인(CROSS JOIN)
 CARTESIAN PRODUCT
 
-- 미국 국립 표준 협회(American National Standards Institute, ANSI) 미국의 산업 표준을 제정하는 민간단체.
+- 미국 국립 표준 협회(American National Standards Institute, ANSI) 미국의 산업 표준을 제정하는 민간단체
 - 국제표준화기구 ISO에 가입되어 있음
 */
 ------------------------------------------------------------------
@@ -54,7 +54,7 @@ JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID); --> DEPT_CODE와 DEPT_ID 값이 같은
 -- 1. 내부 조인(INNER JOIN) ( == 등가 조인(EQUAL JOIN))
 --> 연결되는 컬럼의 값이 일치하는 행들만 조인됨 (== 일치하는 값이 없는 행은 조인에서 제외됨)
 
--- 작성 방법 : 크게 ANSI구문과 오라클 구문 으로 나뉘고 ANSI에서  USING과 ON을 쓰는 방법으로 나뉜다
+-- 작성 방법 : 크게 ANSI구문과 오라클구문으로 나뉘고 ANSI에서 USING과 ON을 쓰는 방법으로 나뉜다
 
 -- *ANSI 표준 구문
 -- ANSI는 미국 국립 표준 협회를 뜻함, 미국의 산업표준을 제정하는 민간단체로 국제표준화기구 ISO에 가입되어있다
@@ -148,8 +148,7 @@ SELECT EMP_NAME, DEPT_TITLE
 FROM EMPLOYEE, DEPARTMENT 
 WHERE DEPT_CODE = DEPT_ID(+); -- DEPT_CODE의 값이 DEPT_ID와 일치하지 않아도 결과에 포함(추가)
 
--- 2) RIGHT [OUTER] JOIN : 합치기에 사용한 두 테이블 중 
--- 오른편에 기술된 테이블의  컬럼 수를 기준으로 JOIN
+-- 2) RIGHT [OUTER] JOIN : 합치기에 사용한 두 테이블 중 오른편에 기술된 테이블의 컬럼 수를 기준으로 JOIN
 -- ANSI 표준
 SELECT EMP_NAME, DEPT_TITLE
 FROM EMPLOYEE RIGHT JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID);
@@ -171,7 +170,7 @@ FROM EMPLOYEE FULL JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID);
 
 -------------------------------------------------------------------------
 -- 3. 교차 조인(CROSS JOIN == CARTESIAN PRODUCT) : 조인되는 테이블의 각 행들이 모두 매핑된 데이터가 검색되는 방법(곱집합)
---> 직접 사용보단 "NATURAL JOIN의 실패 결과로 보여지는 모습"이라고 알아주는게 좋음
+--> 직접 사용보단 "NATURAL JOIN의 실패 결과로 보여지는 모습"이라고 알아두는게 좋음
 SELECT EMP_NAME, DEPT_TITLE
 FROM EMPLOYEE CROSS JOIN DEPARTMENT
 ORDER BY EMP_NAME, DEPT_CODE; -- 207행

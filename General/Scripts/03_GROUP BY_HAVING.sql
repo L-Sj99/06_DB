@@ -67,7 +67,7 @@ GROUP BY JOB_CODE;
 
 -- * 여러 컬럼을 묶어서 그룹으로 지정 가능
 -- *** GROUP BY 사용시 주의사항
---> SELECT문에 GROUP BY절을 사용할 경우 SELECT절에 명시한 조회할려면 컬럼 중
+--> SELECT문에 GROUP BY절을 사용할 경우 SELECT절에 명시된 조회할 컬럼 중
 --  그룹함수가 적용되지 않은 컬럼을 모두 GROUP BY절에 작성해야함.
 
 -- EMPLOYEE 테이블에서 부서 별로 같은 직급인 사원의 급여 합계를 조회하고 부서 코드 오름차순으로 정렬
