@@ -70,7 +70,7 @@ MODIFY DEPT_TITLE NULL;
 -- 컬럼 추가 : ALTER TABLE 테이블명 ADD(컬럼명 데이터타입 [DEFAULT '값']);
 
 -- 컬럼 수정 : ALTER TABLE 테이블명 MOIDFY 컬럼명 데이터타입;   (데이터 타입 변경)
---             ALTER TABLE 테이블명 MOIDFY 컬럼명 DEFAULT '값'; (기본값 변경)
+--             ALTER TABLE 테이블명 MODIFY 컬럼명 DEFAULT '값'; (기본값 변경)
 
 --> ** 데이터 타입 수정 시 컬럼에 저장된 데이터 크기 미만으로 변경할 수 없다.
 -- EX) CHAR(3)짜리 컬럼에 'ABC' 저장된 상태

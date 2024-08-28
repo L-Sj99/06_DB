@@ -17,7 +17,7 @@
  *  CREATE [OR REPLACE] [FORCE | NOFORCE] VIEW 뷰이름 [컬럼 별칭]
  *  AS 서브쿼리(SELECT문)
  *  [WITH CHECK OPTION]
- *  [WITH READ OLNY];
+ *  [WITH READ ONLY];
  * 
  *  1) OR REPLACE 옵션 : 기존에 동일한 이름의 VIEW가 존재하면 이를 변경,	없으면 새로 생성
  * 
@@ -29,7 +29,7 @@
  * 
  *  4) WITH CHECK OPTION 옵션 : 옵션을 지정한 컬럼의 값을 수정 불가능하게 함.
  * 
- *  5) WITH READ OLNY 옵션 :	뷰에 대해 SELECT만 가능하도록 지정.
+ *  5) WITH READ ONLY 옵션 :	뷰에 대해 SELECT만 가능하도록 지정.
  */
 
 /* VIEW를 생성하기 위해서는 권한이 필요 */
@@ -94,7 +94,7 @@ SELECT * FROM V_DCOPY2; -- D0, L2
 SELECT * FROM DEPT_COPY2; -- D0 NULL L2
 
 -- VIEW에 INSERT를 수행 했으나, VIEW를 만들 때 사용한 원본 테이블에 값이 INSERT 됨을 확인
--- 하지만 모든 컬ㄻ 값이 INSERT 된 것이 아니라 VIEW를 생성할 때 사용된 컬럼에만 INSERT되어 반대로 사용되지 않은 컬럼에는 NULL이 들어감
+-- 하지만 모든 컬럼 값이 INSERT 된 것이 아니라 VIEW를 생성할 때 사용된 컬럼에만 INSERT되어 반대로 사용되지 않은 컬럼에는 NULL이 들어감
 	--> NULL은 DB에 무결성을 약하게 만드는 주요원인(가능하면 의도되지 않은 NULL은 존재하지 않게 하자)
 
 /* WITH READ ONLY 옵션 사용하기*/
