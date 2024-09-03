@@ -33,20 +33,6 @@ CREATE TABLE BOARDS(
 );
 SELECT * FROM BOARDS;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 SELECT EMP_ID "사번", EMP_NAME "이름", DECODE(SUBSTR(EMP_NO, 8, 1), '1', 'M', '2', 'F') "성별", 
 			 SALARY "급여", JOB_NAME "직급명", NVL(DEPT_TITLE, '없음') "부서명"
 FROM EMPLOYEE
